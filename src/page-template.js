@@ -1,6 +1,6 @@
 // Template Literal for manager
 const teamGenerator = team => {
-    const managerGenerator = manager => {
+    const managerTemplate = manager => {
         return `
         <div class="card employee-card">
         <div class="card-header">
@@ -19,7 +19,7 @@ const teamGenerator = team => {
     };
 
     // Template Literal for engineer
-    const engineerGenerator = engineer => {
+    const engineerTemplate = engineer => {
         return `
         <div class="card employee-card">
     <div class="card-header">
@@ -38,7 +38,7 @@ const teamGenerator = team => {
     };
 
     // Template Literal for intern
-    const internGenerator = intern => {
+    const internTemplate = intern => {
         return `
         <div class="card employee-card">
     <div class="card-header">
@@ -56,25 +56,11 @@ const teamGenerator = team => {
         `;
     };
 
-    const html = [];
-
-    html.push(team
-        .filter(employee => employee.getRole() === "Manager")
-        .map(manager => managerGenerator(manager))
-    );
-    html.push(team
-        .filter(employee => employee.getRole() === "Engineer")
-        .map(engineer => engineerGenerator(engineer))
-        .join("")
-    );
-    html.push(team
-        .filter(employee => employee.getRole() === "Intern")
-        .map(intern => internGenerator(intern))
-        .join("")
-    );
-
-    return html.join("");
-
+    const generatedHTML = [];
+    generatedHTML.push(team.filter(employee => employee.getRole() === "Manager").map(manager => managerTemplate(manager)));
+    generatedHTML.push(team.filter(employee => employee.getRole() === "Engineer").map(engineer => engineerTemplate(engineer)).join(""));
+    generatedHTML.push(team.filter(employee => employee.getRole() === "Intern").map(intern => internTemplate(intern)).join(""));
+    return generatedHTML.join("");
 }
 
 module.exports = team => {
@@ -89,7 +75,6 @@ module.exports = team => {
     <title>My Team</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/c502137733.js"></script>
 </head>
 
