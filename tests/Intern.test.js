@@ -1,19 +1,29 @@
-const Intern = require("../lib/Intern");
+const intern = require("../lib/intern");
 
-test("Can set school via constructor", () => {
-  const testValue = "UCLA";
-  const e = new Intern("Foo", 1, "test@test.com", testValue);
-  expect(e.school).toBe(testValue);
-});
+describe("Intern", () => {
 
-test("getRole() should return \"Intern\"", () => {
-  const testValue = "Intern";
-  const e = new Intern("Foo", 1, "test@test.com", "UCLA");
-  expect(e.getRole()).toBe(testValue);
-});
+  it("Should create an intern object", () => {
 
-test("Can get school via getSchool()", () => {
-  const testValue = "UCLA";
-  const e = new Intern("Foo", 1, "test@test.com", testValue);
-  expect(e.getSchool()).toBe(testValue);
+    const test = new intern("Vick", "3", "vickphat@gmail.com", "CWRU");
+
+    expect(test.name).toBe("Vick");
+    expect(test.id).toBe("3");
+    expect(test.email).toBe("vickphat@gmail.com");
+    expect(test.title).toBe("Intern");
+    expect(test.school).toBe("CWRU");
+  });
+
+  it("Should obtain role via getRole()", () => {
+    const roleTest = "Intern"
+    const test = new intern("Vick", "3", "vickphat@gmail.com", roleTest);
+
+    expect(test.getRole()).toBe(roleTest);
+  });
+
+  it("Should obtain school via getSchool()", () => {
+    const school = "CWRU"
+    const test = new intern("Vick", "3", "vickphat@gmail.com", school);
+
+    expect(test.getSchool()).toBe(school);
+  });
 });

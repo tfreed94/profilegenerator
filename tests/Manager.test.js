@@ -1,20 +1,27 @@
-const Manager = require("../lib/Manager");
-const Employee = require("../lib/Employee");
+const manager = require("../lib/manager");
 
-test("Can set office number via constructor argument", () => {
-  const testValue = 100;
-  const e = new Manager("Foo", 1, "test@test.com", testValue);
-  expect(e.officeNumber).toBe(testValue);
-});
+describe("Manager", () => {
+  it("Should create an manager object", () => {
+    const test = new manager("Vick", "3", "vickphat@gmail.com", "100");
 
-test("getRole() should return \"Manager\"", () => {
-  const testValue = "Manager";
-  const e = new Manager("Foo", 1, "test@test.com", 100);
-  expect(e.getRole()).toBe(testValue);
-});
+    expect(test.name).toBe("Vick");
+    expect(test.id).toBe("3");
+    expect(test.email).toBe("vickphat@gmail.com");
+    expect(test.title).toBe("Manager");
+    expect(test.officeNumber).toBe("100");
+  });
 
-test("Can get office number via getOffice()", () => {
-  const testValue = 100;
-  const e = new Manager("Foo", 1, "test@test.com", testValue);
-  expect(e.getOfficeNumber()).toBe(testValue);
+  it("Should obtain role via getRole()", () => {
+    const roleTest = "Manager";
+    const test = new manager("Vick", "3", "vickphat@gmail.com", roleTest);
+
+    expect(test.getRole()).toBe(roleTest);
+  });
+
+  it("Should obtain office number via getOfficeNumber()", () => {
+    const officeTest = "100";
+    const test = new manager("Vick", "3", "vickphat@gmail.com", officeTest);
+
+    expect(test.getOfficeNumber()).toBe(officeTest);
+  });
 });
