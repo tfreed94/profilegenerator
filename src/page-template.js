@@ -1,6 +1,6 @@
 // Template Literal for manager
-const generateTeam = team => {
-    const generateManager = manager => {
+const teamGenerator = team => {
+    const managerGenerator = manager => {
         return `
         <div class="card employee-card">
         <div class="card-header">
@@ -19,7 +19,7 @@ const generateTeam = team => {
     };
 
     // Template Literal for engineer
-    const generateEngineer = engineer => {
+    const engineerGenerator = engineer => {
         return `
         <div class="card employee-card">
     <div class="card-header">
@@ -38,7 +38,7 @@ const generateTeam = team => {
     };
 
     // Template Literal for intern
-    const generateIntern = intern => {
+    const internGenerator = intern => {
         return `
         <div class="card employee-card">
     <div class="card-header">
@@ -60,16 +60,16 @@ const generateTeam = team => {
 
     html.push(team
         .filter(employee => employee.getRole() === "Manager")
-        .map(manager => generateManager(manager))
+        .map(manager => managerGenerator(manager))
     );
     html.push(team
         .filter(employee => employee.getRole() === "Engineer")
-        .map(engineer => generateEngineer(engineer))
+        .map(engineer => engineerGenerator(engineer))
         .join("")
     );
     html.push(team
         .filter(employee => employee.getRole() === "Intern")
-        .map(intern => generateIntern(intern))
+        .map(intern => internGenerator(intern))
         .join("")
     );
 
@@ -104,7 +104,7 @@ module.exports = team => {
     <div class="container">
         <div class="row">
             <div class="team-area col-12 d-flex justify-content-center">
-                ${generateTeam(team)}
+                ${teamGenerator(team)}
             </div>
         </div>
     </div>
