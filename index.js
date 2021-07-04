@@ -13,23 +13,23 @@ const teamMembers = [];
 
 appMenu = () => {
     createManager = () => {
-        console.log("Please build your team");
+        console.log("Get your team set up");
         inquirer.prompt([
             {
                 type: "input",
                 name: "managerName",
-                message: "What is the team manager's name?",
+                message: "Enter name of team manager",
                 validate: answer => {
                     if (answer !== "") {
                         return true;
                     }
-                    return "Please enter at least one character.";
+                    return "You must enter at least one character";
                 }
             },
             {
                 type: "input",
                 name: "managerId",
-                message: "What is the team manager's id?",
+                message: "What's the managers id?",
                 validate: answer => {
                     const pass = answer.match(
                         /^[1-9]\d*$/
@@ -37,13 +37,13 @@ appMenu = () => {
                     if (pass) {
                         return true;
                     }
-                    return "Please enter a positive number greater than zero.";
+                    return "Must enter a number larger than 0";
                 }
             },
             {
                 type: "input",
                 name: "managerEmail",
-                message: "What is the team manager's email?",
+                message: "Email for team manager?",
                 validate: answer => {
                     const pass = answer.match(
                         /\S+@\S+\.\S+/
@@ -51,13 +51,13 @@ appMenu = () => {
                     if (pass) {
                         return true;
                     }
-                    return "Please enter a valid email address.";
+                    return "Enter an email adress";
                 }
             },
             {
                 type: "input",
                 name: "managerOfficeNumber",
-                message: "What is the team manager's office number?",
+                message: "Office number for team manager",
                 validate: answer => {
                     const pass = answer.match(
                         /^[1-9]\d*$/
@@ -65,7 +65,7 @@ appMenu = () => {
                     if (pass) {
                         return true;
                     }
-                    return "Please enter a positive number greater than zero.";
+                    return "Must enter a number larger than 0";
                 }
             }
         ]).then(answers => {
@@ -81,11 +81,11 @@ appMenu = () => {
             {
                 type: "list",
                 name: "memberChoice",
-                message: "Which type of team member would you like to add?",
+                message: "What kind of team member do you want to add next?",
                 choices: [
                     "Engineer",
                     "Intern",
-                    "I don't want to add any more team members"
+                    "None"
                 ]
             }
         ]).then(userChoice => {
@@ -107,37 +107,37 @@ appMenu = () => {
             {
                 type: "input",
                 name: "engineerName",
-                message: "What is your engineer's name?",
+                message: "Name of engineer?",
                 validate: answer => {
                     if (answer !== "") {
                         return true;
                     }
-                    return "Please enter at least one character.";
+                    return "Must enter at least one character";
                 }
             },
             {
                 type: "input",
                 name: "engineerId",
-                message: "What is your engineer's id?",
+                message: "Engineer ID?",
                 validate: answer => {
                     const pass = answer.match(
                         /^[1-9]\d*$/
                     );
                     if (pass) {
                         if (idArray.includes(answer)) {
-                            return "This ID is already taken. Please enter a different number.";
+                            return "Choose different ID, ID already taken";
                         } else {
                             return true;
                         }
 
                     }
-                    return "Please enter a positive number greater than zero.";
+                    return "Must enter a number larger than 0";
                 }
             },
             {
                 type: "input",
                 name: "engineerEmail",
-                message: "What is your engineer's email?",
+                message: "Email for engineer?",
                 validate: answer => {
                     const pass = answer.match(
                         /\S+@\S+\.\S+/
@@ -145,18 +145,18 @@ appMenu = () => {
                     if (pass) {
                         return true;
                     }
-                    return "Please enter a valid email address.";
+                    return "Enter an email adress";
                 }
             },
             {
                 type: "input",
                 name: "engineerGithub",
-                message: "What is your engineer's GitHub username?",
+                message: "Github for engineer?",
                 validate: answer => {
                     if (answer !== "") {
                         return true;
                     }
-                    return "Please enter at least one character.";
+                    return "Use at least one character";
                 }
             }
         ]).then(answers => {
@@ -172,37 +172,37 @@ appMenu = () => {
             {
                 type: "input",
                 name: "internName",
-                message: "What is your intern's name?",
+                message: "Name of intern?",
                 validate: answer => {
                     if (answer !== "") {
                         return true;
                     }
-                    return "Please enter at least one character.";
+                    return "Requires at least one character";
                 }
             },
             {
                 type: "input",
                 name: "internId",
-                message: "What is your intern's id?",
+                message: "Intern ID?",
                 validate: answer => {
                     const pass = answer.match(
                         /^[1-9]\d*$/
                     );
                     if (pass) {
                         if (idArray.includes(answer)) {
-                            return "This ID is already taken. Please enter a different number.";
+                            return "Choose different ID, ID already taken";
                         } else {
                             return true;
                         }
 
                     }
-                    return "Please enter a positive number greater than zero.";
+                    return "Must enter a number larger than 0";
                 }
             },
             {
                 type: "input",
                 name: "internEmail",
-                message: "What is your intern's email?",
+                message: "Email for intern?",
                 validate: answer => {
                     const pass = answer.match(
                         /\S+@\S+\.\S+/
@@ -210,13 +210,13 @@ appMenu = () => {
                     if (pass) {
                         return true;
                     }
-                    return "Please enter a valid email address.";
+                    return "Enter an email address";
                 }
             },
             {
                 type: "input",
                 name: "internSchool",
-                message: "What is your intern's school?",
+                message: "What school did your intern attend?",
                 validate: answer => {
                     if (answer !== "") {
                         return true;
