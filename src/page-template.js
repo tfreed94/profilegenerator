@@ -57,9 +57,12 @@ const teamGenerator = team => {
     };
 
     const generatedHTML = [];
-    generatedHTML.push(team.filter(employee => employee.getRole() === "Manager").map(manager => managerTemplate(manager)));
-    generatedHTML.push(team.filter(employee => employee.getRole() === "Engineer").map(engineer => engineerTemplate(engineer)).join(""));
-    generatedHTML.push(team.filter(employee => employee.getRole() === "Intern").map(intern => internTemplate(intern)).join(""));
+    generatedHTML.push(team.filter(employee => employee.getRole() === "Manager")
+        .map(manager => managerTemplate(manager)));
+    generatedHTML.push(team.filter(employee => employee.getRole() === "Engineer")
+        .map(engineer => engineerTemplate(engineer)).join(""));
+    generatedHTML.push(team.filter(employee => employee.getRole() === "Intern")
+        .map(intern => internTemplate(intern)).join(""));
     return generatedHTML.join("");
 }
 
