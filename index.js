@@ -12,6 +12,7 @@ const team = [];
 
 
 mainPage = () => {
+    // Use inquirer to prompt user with manager questions
     setManager = () => {
         inquirer
             .prompt([
@@ -46,7 +47,7 @@ mainPage = () => {
                 teamCreate();
             });
     }
-
+    // Use inquirer to ask which user what kind of member they want to add next
     teamCreate = () => {
         inquirer
             .prompt([
@@ -74,7 +75,7 @@ mainPage = () => {
                 }
             });
     }
-
+    // Use inquirer to promp user with engineer questions
     createEngineer = () => {
         inquirer
             .prompt([
@@ -109,7 +110,7 @@ mainPage = () => {
                 teamCreate();
             });
     }
-
+    // Use inquirer to prompt user with intern questions
     createIntern = () => {
         inquirer
             .prompt([
