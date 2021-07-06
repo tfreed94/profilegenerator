@@ -36,7 +36,11 @@ mainPage = () => {
                     message: "Office number for team manager",
                 }
             ]).then(answers => {
-                const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
+                const manager = new Manager(
+                    answers.managerName,
+                    answers.managerId,
+                    answers.managerEmail,
+                    answers.managerOfficeNumber);
                 team.push(manager);
                 arrayOfIDs.push(answers.managerId);
                 teamCreate();
@@ -95,7 +99,11 @@ mainPage = () => {
                     message: "Github for engineer?",
                 }
             ]).then(answers => {
-                const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+                const engineer = new Engineer(
+                    answers.engineerName,
+                    answers.engineerId,
+                    answers.engineerEmail,
+                    answers.engineerGithub);
                 team.push(engineer);
                 arrayOfIDs.push(answers.engineerId);
                 teamCreate();
@@ -126,7 +134,11 @@ mainPage = () => {
                     message: "What school did your intern attend?",
                 }
             ]).then(answers => {
-                const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+                const intern = new Intern(
+                    answers.internName,
+                    answers.internId,
+                    answers.internEmail,
+                    answers.internSchool);
                 team.push(intern);
                 arrayOfIDs.push(answers.internId);
                 teamCreate();
