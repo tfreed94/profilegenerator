@@ -149,7 +149,7 @@ mainPage = () => {
     }
     // Checks file system to see if the path already exists
     // Create directory
-    // Write data to file
+    // Writes data to team.html file
     generateTeam = () => {
         if (!fs.existsSync(OUTPUT_DIR)) {
             fs.mkdirSync(OUTPUT_DIR)

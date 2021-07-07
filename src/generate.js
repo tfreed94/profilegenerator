@@ -62,6 +62,7 @@ const teamGenerator = team => {
     return generatedHTML.join("");
 }
 
+
 module.exports = team => {
     return `
     <!DOCTYPE html>
