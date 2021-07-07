@@ -2,17 +2,14 @@
 const teamGenerator = team => {
     const managerTemplate = manager => {
         return `
-        <div class="card employee-card">
         <div class="card-header">
             <h2 class="card-title">${manager.getName()}</h2>
-            <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.getRole()}</h3>
+            <h3 class="card-title">${manager.getRole()}</h3>
         </div>
         <div class="card-body">
-            <ul class="list-group">
-                <li class="list-group-item">ID: ${manager.getId()}</li>
-                <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-                <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
-            </ul>
+            <p>ID: ${manager.getId()}</p>
+            <p>Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></p>
+            <p>Office number: ${manager.getOfficeNumber()}</p>
         </div>
     </div>
         `;
@@ -21,17 +18,14 @@ const teamGenerator = team => {
     // Template Literal for engineer
     const engineerTemplate = engineer => {
         return `
-        <div class="card employee-card">
     <div class="card-header">
         <h2 class="card-title">${engineer.getName()}</h2>
-        <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>${engineer.getRole()}</h3>
+        <h3 class="card-title">${engineer.getRole()}</h3>
     </div>
     <div class="card-body">
-        <ul class="list-group">
-            <li class="list-group-item">ID: ${engineer.getId()}</li>
-            <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-            <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li>
-        </ul>
+        <p>ID: ${engineer.getId()}</p>
+        <p>Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></p>
+        <p>GitHub: <a href="https://github.com/${engineer.getGithub()}>${engineer.getGithub()}</a></p>
     </div>
 </div>
         `;
@@ -40,17 +34,14 @@ const teamGenerator = team => {
     // Template Literal for intern
     const internTemplate = intern => {
         return `
-        <div class="card employee-card">
     <div class="card-header">
         <h2 class="card-title">${intern.getName()}</h2>
-        <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
+        <h3 class="card-title">${intern.getRole()}</h3>
     </div>
     <div class="card-body">
-        <ul class="list-group">
-            <li class="list-group-item">ID: ${intern.getId()}</li>
-            <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-            <li class="list-group-item">School: ${intern.getSchool()}</li>
-        </ul>
+        <p>ID: ${intern.getId()}</p>
+        <p>Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></p>
+        <p>School: ${intern.getSchool()}</p>
     </div>
 </div>
         `;
@@ -78,20 +69,19 @@ module.exports = team => {
     <title>My Team</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/c502137733.js"></script>
 </head>
 
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 jumbotron mb-3 team-heading">
+        <div>
+            <div class="col-12 mb-3 team-heading">
                 <h1 class="text-center">My Team</h1>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="team-area col-12 d-flex justify-content-center">
+    <div class="container-fluid">
+        <div>
+            <div col-12 d-flex justify-content-center">
                 ${teamGenerator(team)}
             </div>
         </div>
