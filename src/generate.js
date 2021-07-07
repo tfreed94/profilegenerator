@@ -8,7 +8,7 @@ const teamGenerator = team => {
         </div>
         <div class="card-body">
             <p>ID: ${manager.getId()}</p>
-            <p>Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></p>
+            <p>Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}></p>
             <p>Office number: ${manager.getOfficeNumber()}</p>
         </div>
     </div>
@@ -24,8 +24,8 @@ const teamGenerator = team => {
     </div>
     <div class="card-body">
         <p>ID: ${engineer.getId()}</p>
-        <p>Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></p>
-        <p>GitHub: <a href="https://github.com/${engineer.getGithub()}>${engineer.getGithub()}</a></p>
+        <p>Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}></p>
+        <p>GitHub: <a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}></p>
     </div>
 </div>
         `;
@@ -40,7 +40,7 @@ const teamGenerator = team => {
     </div>
     <div class="card-body">
         <p>ID: ${intern.getId()}</p>
-        <p>Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></p>
+        <p>Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}></p>
         <p>School: ${intern.getSchool()}</p>
     </div>
 </div>
@@ -81,7 +81,7 @@ module.exports = team => {
     </div>
     <div class="container-fluid">
         <div>
-            <div col-12 d-flex justify-content-center">
+            <div class="col-12 d-flex justify-content-center">
                 ${teamGenerator(team)}
             </div>
         </div>
