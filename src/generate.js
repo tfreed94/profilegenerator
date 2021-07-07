@@ -2,48 +2,51 @@
 const teamGenerator = team => {
     const managerTemplate = manager => {
         return `
+        <div>
         <div class="card-header">
             <h2 class="card-title">${manager.getName()}</h2>
             <h3 class="card-title">${manager.getRole()}</h3>
         </div>
         <div class="card-body">
             <p>ID: ${manager.getId()}</p>
-            <p>Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}></p>
+            <p>Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></p>
             <p>Office number: ${manager.getOfficeNumber()}</p>
         </div>
-    </div>
+        </div>
         `;
     };
 
     // Template Literal for engineer
     const engineerTemplate = engineer => {
         return `
+        <div>
     <div class="card-header">
         <h2 class="card-title">${engineer.getName()}</h2>
         <h3 class="card-title">${engineer.getRole()}</h3>
     </div>
     <div class="card-body">
         <p>ID: ${engineer.getId()}</p>
-        <p>Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}></p>
-        <p>GitHub: <a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}></p>
+        <p>Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></p>
+        <p>GitHub: <a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></p>
     </div>
-</div>
+    </div>
         `;
     };
 
     // Template Literal for intern
     const internTemplate = intern => {
         return `
+        <div>
     <div class="card-header">
         <h2 class="card-title">${intern.getName()}</h2>
         <h3 class="card-title">${intern.getRole()}</h3>
     </div>
     <div class="card-body">
         <p>ID: ${intern.getId()}</p>
-        <p>Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}></p>
+        <p>Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></p>
         <p>School: ${intern.getSchool()}</p>
     </div>
-</div>
+    </div>
         `;
     };
 
@@ -63,9 +66,9 @@ module.exports = team => {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>My Team</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -73,17 +76,14 @@ module.exports = team => {
 
 <body>
     <div class="container-fluid">
-        <div>
-            <div class="col-12 mb-3 team-heading">
-                <h1 class="text-center">My Team</h1>
-            </div>
+
+        <div class="col-12">
+            <h1 class="text-center">My Team</h1>
         </div>
     </div>
     <div class="container-fluid">
-        <div>
-            <div class="col-12 d-flex justify-content-center">
-                ${teamGenerator(team)}
-            </div>
+        <div class="col-12 d-flex justify-content-center">
+            ${teamGenerator(team)}
         </div>
     </div>
 </body>
