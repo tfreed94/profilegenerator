@@ -16,15 +16,9 @@ describe("Employee", () => {
   });
 
   it("Obtain an email", () => {
-    const test = new employee("troy", "003", "troyfreed@gmail.com");
+    const test = new employee("troy", "003", "tfreed94@gmail.com");
 
-    expect(test.email).toEqual("troyfreed@gmail.com");
-  });
-
-  it("Obtain employee title", () => {
-    const test = new employee("troy", "003", "troyfreed@gmail.com");
-
-    expect(test.title).toEqual("Employee");
+    expect(test.email).toEqual("tfreed94@gmail.com");
   });
 
 
