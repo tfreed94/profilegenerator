@@ -4,14 +4,14 @@ const teamGenerator = team => {
         return `
         <div>
         <div class="card-header">
-            <h2 class="card-title">${manager.getName()}</h2>
-            <h3 class="card-title">${manager.getRole()}</h3>
+            <h2 class="card-title">${manager.names()}</h2>
+            <h3 class="card-title">${manager.role()}</h3>
         </div>
         <div class="card-body">
-            <p>ID: ${manager.getId()}</p>
-            <p>Email: <a href="mailto:${manager.getEmail()}">
-            ${manager.getEmail()}</a></p>
-            <p>Office number: ${manager.getOfficeNumber()}</p>
+            <p>ID: ${manager.ID()}</p>
+            <p>Email: <a href="mailto:${manager.eMail()}">
+            ${manager.eMail()}</a></p>
+            <p>Office number: ${manager.office()}</p>
         </div>
         </div>
         `;
@@ -22,15 +22,15 @@ const teamGenerator = team => {
         return `
         <div>
     <div class="card-header">
-        <h2 class="card-title">${engineer.getName()}</h2>
-        <h3 class="card-title">${engineer.getRole()}</h3>
+        <h2 class="card-title">${engineer.names()}</h2>
+        <h3 class="card-title">${engineer.role()}</h3>
     </div>
     <div class="card-body">
-        <p>ID: ${engineer.getId()}</p>
-        <p>Email: <a href="mailto:${engineer.getEmail()}">
-        ${engineer.getEmail()}</a></p>
-        <p>GitHub: <a href="https://github.com/${engineer.getGithub()}">
-        ${engineer.getGithub()}</a></p>
+        <p>ID: ${engineer.ID()}</p>
+        <p>Email: <a href="mailto:${engineer.eMail()}">
+        ${engineer.eMail()}</a></p>
+        <p>GitHub: <a href="https://github.com/${engineer.gitHub()}">
+        ${engineer.gitHub()}</a></p>
     </div>
     </div>
         `;
@@ -41,14 +41,14 @@ const teamGenerator = team => {
         return `
         <div>
     <div class="card-header">
-        <h2 class="card-title">${intern.getName()}</h2>
-        <h3 class="card-title">${intern.getRole()}</h3>
+        <h2 class="card-title">${intern.names()}</h2>
+        <h3 class="card-title">${intern.role()}</h3>
     </div>
     <div class="card-body">
-        <p>ID: ${intern.getId()}</p>
-        <p>Email: <a href="mailto:${intern.getEmail()}">
-        ${intern.getEmail()}</a></p>
-        <p>School: ${intern.getSchool()}</p>
+        <p>ID: ${intern.ID()}</p>
+        <p>Email: <a href="mailto:${intern.eMail()}">
+        ${intern.eMail()}</a></p>
+        <p>School: ${intern.schoolName()}</p>
     </div>
     </div>
         `;
@@ -56,9 +56,9 @@ const teamGenerator = team => {
 
 
     const generatedHTML = [];
-    generatedHTML.push(team.filter(employee => employee.getRole() === "Manager").map(manager => managerTemplate(manager)));
-    generatedHTML.push(team.filter(employee => employee.getRole() === "Engineer").map(engineer => engineerTemplate(engineer)).join(""));
-    generatedHTML.push(team.filter(employee => employee.getRole() === "Intern").map(intern => internTemplate(intern)).join(""));
+    generatedHTML.push(team.filter(employee => employee.role() === "Manager").map(manager => managerTemplate(manager)));
+    generatedHTML.push(team.filter(employee => employee.role() === "Engineer").map(engineer => engineerTemplate(engineer)).join(""));
+    generatedHTML.push(team.filter(employee => employee.role() === "Intern").map(intern => internTemplate(intern)).join(""));
     return generatedHTML.join("");
 }
 
